@@ -22,15 +22,15 @@ var SampleApp = function() {
      */
     self.setupVariables = function() {
         //  Set the environment variables we need.
-        self.ipaddress = process.env.IP;
         self.port      = process.env.PORT || 3000;
+        //self.ipaddress = process.env.IP;
 
-        if (typeof self.ipaddress === "undefined") {
-            //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
-            //  allows us to run/test the app locally.
-            console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
-            self.ipaddress = "127.0.0.1";
-        }
+        // if (typeof self.ipaddress === "undefined") {
+        //     //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
+        //     //  allows us to run/test the app locally.
+        //     console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
+        //     self.ipaddress = "127.0.0.1";
+        // }
     };
 
     /**
@@ -225,11 +225,10 @@ var SampleApp = function() {
      */
     self.start = function() {
         //  Start the app on the specific interface (and port).
-        self.app.listen(self.port, self.ipaddress, function() {
+        self.app.listen(self.port, function() {
             console.log('%s: Node server started on %s:%d ...',
-            Date(Date.now() ), self.ipaddress, self.port);
+            Date(Date.now() ), self.port);
         });
-        console.log(self.ipaddress);
     };
 
 };   /*  Sample Application.  */
