@@ -1,0 +1,15 @@
+{{#each this}}
+<div>
+	<div>
+		<h2><span>{{place}}</span>{{name}}</h2>
+		<h3>[class], level [level]</h3>
+		<div class="score">
+			<div class="reward">reward</div>
+			<strong>{{bounty}}<span>G</span></strong>
+			<span><span>{{kills}}</span> killstreak</span><span><span>{{deaths}}</span> deaths</span>
+		</div>
+	</div>
+</div>
+{{else}}
+	<section style="padding: 40px 0 150px;display: flex;justify-content: center;align-items: center;width: 100%;"><p style="text-align: center;font-size: 30px;">No kills yet! :/</p></section>
+{{/each}}

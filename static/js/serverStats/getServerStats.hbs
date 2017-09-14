@@ -1,0 +1,16 @@
+{{#if online}}
+	<div class="online">
+		<h3>Server online</h3>
+		<p>{{nOfPlayers}} active players</p>
+	</div>
+	<ul class="players">
+		{{#each players}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+{{else}}
+	<div class="offline">
+		<h3>Server down</h3>
+		<p>Since {{date}}</p>
+	</div>
+{{/if}}
