@@ -1,0 +1,69 @@
+.dots-loader {
+	@time: 0.7s;
+	@dotsDistance: 0.25;
+	display: inline-block;
+	font-size: 0.7em;
+	height: 1em;
+	width: 3em + ((1em*@dotsDistance)*2);
+	margin: 0 1em;
+	z-index: 99999;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	span,
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		height: 0;
+		width: 0;
+		border-radius: 100px;
+		border: 1em/2 solid;
+		animation: dots-loader @time infinite;
+		opacity: 0;
+	}
+	&:before {
+		left: 1em + (1em * @dotsDistance);
+		animation-delay: @time / 3;
+	}
+	&:after {
+		left: 2em + ((1em * @dotsDistance)*2);
+		animation-delay: (@time / 3) * 2;
+	}
+	&.color {
+		span,
+		&:before,
+		&:after {
+			border-color: @key1;
+		}
+	}
+	&.wide {
+		@dotsDistance: 1;
+		width: 3em + ((1em*@dotsDistance)*2);
+		&:before {
+			left: 1em + (1em * @dotsDistance);
+		}
+		&:after {
+			left: 2em + ((1em * @dotsDistance)*2);
+		}
+	}
+	&.hide {
+		transition: all .5s;
+		transform: translate(-50%, -50%) scale(2);
+		opacity: 0;
+	}
+}
+
+@keyframes dots-loader {
+	0% {
+		opacity: 0.2;
+	}
+	5% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.2;
+	}
+}

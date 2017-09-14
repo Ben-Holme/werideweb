@@ -1,0 +1,74 @@
+.server-stats {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: 0.1s, opacity 0.5s;
+	z-index: 1;
+	opacity: 0;
+	&.active {
+		opacity: 1;
+	}
+	.scrolled & {
+		transform: translate(0, 45px);
+		@media @smQ {
+			transform: translate(0, 57px);
+		}
+	}
+	@media @smQ {
+		transform: translate(0, 57px);
+	}
+	div {
+		overflow: hidden;
+		z-index: 1;
+		position: relative;
+		padding: 20px;
+		@media @smQ {
+			padding: 10px;
+		}
+		h3 {
+			color: lighten(@key1, 10);
+		}
+		&.online h3 {
+			color: @key2;
+		}
+		h3, p {
+			font-size: 10px;
+			margin-top: 0;
+			@media @smQ {
+				font-size: 7px;
+			}
+		}
+	}
+	ul.players {
+		background-image: url('/static/img/1.jpg');
+		position: absolute;
+		left: 0;
+		top: 0;
+		list-style: none;
+		width: 10vw;
+		margin: 0;
+		padding: 55px 0 0 0;
+		min-width: 200px;
+		border-right: 2px solid @strokeColor;
+		border-bottom: 2px solid @strokeColor;
+		box-shadow: fade(#000, 50) 0 0 20px;
+		transform:  rotate(5deg) translate(-100%, 0);
+		transform-origin: 0 0;
+		transition: 0.1s;
+		li {
+			border-top: 2px solid @strokeColor;
+			padding: 10px 20px;
+			color: @white;
+			font-weight: bold;
+		}
+	}
+	&:hover {
+		ul.players {
+			transform: translate(0, 0) rotate(0);
+		}
+	}
+}
+
+.stats {
+	padding: 50px;
+}

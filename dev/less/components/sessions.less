@@ -1,0 +1,229 @@
+.sessions {
+	padding-top: 50px;
+	margin-right: 100px;
+	> div {
+		position: relative;
+	}
+	.markers {
+		pointer-events: none;
+		position: absolute;
+		display: flex;
+		justify-content: space-between;
+		top: 0;
+		bottom: 0;
+		z-index: 1;
+		&.one-day {
+
+		}
+		&.two-days {
+			> span > span {
+				opacity: 0;
+			}
+			> span:nth-child(2n-1) {
+				> span {
+					opacity: 1;
+				}
+			}
+		}
+		&.three-days {
+			> span > span {
+				opacity: 0;
+			}
+			> span:nth-child(4n) {
+				> span {
+					opacity: 1;
+				}
+			}
+		}
+		> span {
+			display: block;
+			width: 1px;
+			background-color: fade(@color, 10);
+			&.day {
+				background-color: fade(@color, 30);
+			}
+			@media @smQ {
+				opacity: 0;
+				&.day {
+					opacity: 1;
+				}
+			}
+			> span {
+				color: fade(@color, 30);
+				//border-bottom: solid 1px fade(@color, 10);
+				text-align: center;
+				width: 10px;
+				line-height: 1.4;
+				position: absolute;
+				transform: translate(-50%, -100%);
+				font-size: 8px;
+			}
+			i {
+				line-height: 1.4;
+				font-style: normal;
+				font-size: 8px;
+				position: absolute;
+				top: 0;
+				transform: translate(-50%, -100%);
+			}
+		}
+	}
+}
+.char {
+	margin-bottom: 5px;
+	background-color: fade(@black, 20);
+	box-shadow: inset lighten(@black, 18) 0 -1px 0;
+	position: relative;
+	height: 12px;
+	border-radius: 100px;
+	&.server {
+		margin-bottom: 15px;
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: -8px;
+			left: 0;
+			right: 0;
+			height: 1px;
+			border-bottom: dotted 1px fade(@color, 10);
+		}
+		span.name {
+			color: @white;
+		}
+	}
+	span.name {
+		font-weight: bold;
+		transform: translateY(-50%);
+		overflow: hidden;
+		max-width: 100px;
+		text-overflow: ellipsis;
+		position: absolute;
+		color: @color;
+		left: ~"calc(100% + 5px)";
+		font-size: 8px;
+		text-transform: uppercase;
+		top: 50%;
+	}
+	&:nth-child(3n + 1) div {
+		color: #888;
+	}
+	&:nth-child(3n + 2) div {
+		color: @key1;
+	}
+	&:nth-child(3n) div {
+		color: @key2;
+	}
+	div {
+		position: absolute;
+		border-radius: 100px;
+		//min-width: 14px;
+		box-shadow: rgba(0,0,0,0.3) -1px 0 0;
+		top: 0;
+		bottom: 0;
+		color: #900;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 8px;
+		span.color {
+			left: 0;top: 0;right: 0;bottom: 0;
+			border-radius: 100px;
+			position: absolute;
+			background-color: currentColor;
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;top: 0;right: 0;bottom: 0;
+				background-image: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.5));
+				border-radius: 100px;
+				transition: all 0.1s;
+			}
+		}
+		&.active {
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 10px;
+				background-color: currentColor;
+				box-shadow: 0 0 10px 3px;
+				border-radius: 100px;
+			}
+			span.color {
+				&:before {
+					background-image: linear-gradient(to right, rgba(0,0,0,.6), transparent);
+				}
+			}
+			&.long {
+				&:before {
+					content: '';
+					position: absolute;
+					left: 13px;
+					width: 0;
+					border-right: 2px dotted #000;
+					top: 0;
+					bottom: 0;
+					z-index: 99999;
+				}
+			}
+		}
+		span.start, span.end {
+			opacity: 0;
+			position: absolute;
+			right: ~"calc(100% - 8px)";
+			top: 0;
+			color: @color;
+			transform: translateY(-100%) scale(0);
+			background-color: #000;
+			pointer-events: none;
+			transition: all 0.1s;
+			border-radius: 15px 15px 0 15px;
+			padding: 3px 5px;
+			transform-origin: 100% 150%;
+			&:after,
+			&:before {
+				height: 5px;
+				content: '';
+				background-color: #000;
+				width: 2px;
+				position: absolute;
+				right: 0;
+				top: 100%;
+			}
+			&:before {
+				top: ~"calc(100% + 3px)";
+				width: 6px;
+				height: 6px;
+				right: -2px;
+				border-radius: 100%;
+			}
+		}
+		&.session:hover {
+			z-index: 2;
+			span.color {
+				&:before {
+					opacity: 0;
+				}
+			}
+			span.start,
+			span.end {
+				opacity: 1;
+				transform: translateY(-100%) scale(1);
+			}
+		}
+		span.end {
+			left: ~"calc(100% - 8px)";
+			right: auto;
+			border-radius: 15px 15px 15px 0;
+			transform-origin: 0 150%;
+			&:after {
+				left: 0;
+				right: auto;
+			}
+			&:before {
+				left: -2px;
+			}
+		}
+	}
+}

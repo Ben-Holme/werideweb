@@ -1,0 +1,479 @@
+<% layout('framework/layout') %>
+<div class="pages">
+ <div class="pages-wrapper">
+  <div class="control">
+   <div class="dots-loader"><span></span></div>
+  </div>
+
+  <div data-name="about" class="page dont-push">
+   <div class="page-inner">
+
+    <section class="intro" data-locked-scroll="true">
+     <div class="embedded">
+      <div>
+       <div class="text-box">
+        <div>
+         <h1>Loot or <br/>
+          get looted</h1>
+
+         <p>
+          Welcome to <span class="title">We Ride</span>!
+          The classic hardcore <abbr title="Player versus player">PVP</abbr> experience is back
+          <b>from the dark ages of <abbr title="Massive multiplayer online">MMO</abbr></b>.
+         </p>
+
+         <p class="multi-buttons">
+          <span class="btn scroll-btn">Learn more</span>
+          <span class="btn page-btn hidden-sm btn-secondary" data-index="1">Play</span>
+         </p>
+        </div>
+       </div>
+       <div class="image-slider">
+        <img src="/static/img/slide1.jpg" alt=""/>
+        <img src="/static/img/slide2.jpg" alt=""/>
+        <img src="/static/img/slide3.jpg" alt=""/>
+       </div>
+       <video class="bg" id="hero-bg-video" poster="" preload="none" loop muted="true">
+        <source type="video/mp4" media="screen and (min-width:1025px)" src="/static/img/loop.mp4">
+       </video>
+      </div>
+     </div>
+    </section>
+
+    <section class="intro">
+     <div class="flex-list s1">
+      <div class="para go-last">
+       <span class="img" style="background-image: url('/static/img/exciting.jpg');"></span>
+       <span class="caption">On adventure!</span>
+      </div>
+      <div class="copy-item">
+       <div>
+        <h2>Let's bring the <i>thrill</i> back</h2>
+
+        <p>Modern MMO's are too damn wimpy! The games play themselves and players are spoiled with eye candy like
+         ginormous statues and breathtaking surroundings, from day one.</p>
+
+        <p>
+         But no more! I'm building <span class="title">We Ride</span> in an attempt to bring that <i>ultimate
+          online</i> <abbr
+           title="PLayer versus player">pvp</abbr> thrill back from the
+         <abbr title="Role playing game">rpg</abbr>'s of the 90's.
+        </p>
+
+        <p>
+         Also, I want it to be hard as hell.
+         No magically flaming swords, no mighty castles. No, you live in a barren desert, you're gonna get killed and
+         looted, and
+         <b>you're gonna love it!</b>
+        </p>
+
+        <p><span class="btn scroll-btn">The basics</span></p>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <section class="intro">
+     <div class="flex-list s1">
+      <div class="para">
+       <span class="img" style="background-image: url('/static/img/paperdoll.jpg');"></span>
+       <span class="caption">The paperdoll</span>
+      </div>
+      <div class="copy-item">
+       <div>
+        <h3>The basics</h3>
+
+        <p>All players share the same world, there are no safe zones, and <abbr title="">PVP</abbr> is allowed everywhere.</p>
+
+        <p>If you die, everything you wear, plus inventory, will be laying on the ground for anyone to loot.
+         You'll become a ghost and can resurrect at the nearest life gate. If you make it back in time, you may loot
+         yourself.</p>
+
+        <p>What you'll do in <span class="title">We Ride</span> is totally up to you. Train your skills in battle to become
+         the greatest warrior, explore the world as a ranger and tame wild animals, or study the power of the magic
+         nature of the world.</p>
+
+        <p>
+         <span class="btn scroll-btn">Skills and stats</span>
+        </p>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <section class="intro">
+     <div class="flex-list s1">
+      <div class="para go-last">
+       <span class="img" style="background-image: url('/static/img/hunter.jpg');"></span>
+       <span class="caption">Fighting skeletons in Newbie Dungeon</span>
+      </div>
+      <div class="copy-item">
+       <div>
+        <h3>Skills and stats</h3>
+
+        <p>The skills are grouped into the following classes; warrior, ranger, mage and thief. You become better at skills by practicing them.</p>
+
+        <p>You may train any skills you like, and try to find the most efficient build. But, if you keep to <i>one</i> class, you will become specialized and get bonuses and
+         drawbacks.</p>
+
+        <div class="note">
+         <p>In the alpha, you will gain skills super fast. Also, your health and mana will be at 100 by
+          default.</p>
+        </div>
+        <p class="multi-buttons">
+         <span class="btn page-btn" data-index="1">Play</span>
+         <span class="btn btn-secondary scroll-btn link">Making we ride</span>
+        </p>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="centered-heading">
+     <div>
+      <h2>Making We&nbsp;ride</h2>
+     </div>
+    </section>
+    <section>
+     <div class="flex-list s1">
+      <div class="copy-item">
+       <div>
+        <img class="pull-right" src="/static/img/ue4.png" alt=""/>
+
+        <h3>Unreal Engine&nbsp;4</h3>
+
+        <p><span class="title">We Ride</span> is made with <a target="_blank"
+                                                              href="https://www.unrealengine.com/what-is-unreal-engine-4">Unreal
+          Engine</a> and its
+         <a target="_blank" href="https://docs.unrealengine.com/latest/INT/Engine/Blueprints/">Blueprint Visual
+          Scripting</a>.</p>
+
+        <p>I'm using an <abbr title="Structured query language">SQL</abbr> database to store character and inventory
+         data. To communicate between the game server and the database, I use the
+         <a href="https://wiki.unrealengine.com/VaRest_Plugin" target="_blank">VaRest plugin</a> sending <abbr
+           title="JavaScript Object Notation">JSON</abbr> data back and forth.</p>
+
+        <p>Apart from the above, I've managed to build <span class="title">We Ride</span> entirely using Blueprint!</p>
+
+        <div class="note">
+         <h3>Special thanks <3</h3>
+
+         <p>I'd like to thank <a href="https://forums.unrealengine.com/member.php?25447-CodeSpartan" target="_blank">CodeSpartan</a>
+          for his amazing
+          <a href="https://forums.unrealengine.com/showthread.php?53208-MMO-Starter-Kit" target="_blank"><abbr
+             title="Massive multiplayer online">MMO</abbr>-kit</a> <i>and</i> for helping me whenever I got stuck!
+         </p>
+
+         <p>
+          I <i>really</i> recommend buying the kit if you want to get
+          started building a real
+          <abbr title="Massive multiplayer online">MMO</abbr>!
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="copy-item">
+       <div>
+        <img class="pull-right ben" src="/static/img/ben.png" title="SWAG"/>
+
+        <h3>About me</h3>
+
+        <p>My name is Ben Holme. I work as a technical producer, building websites and applications, in Stockholm.</p>
+
+        <p>Sometimes I do <a href="http://holme.be" target="_blank">graphic design and illustrations</a>.</p>
+
+        <p>I've spent the last year (or so) building <span class="title">We Ride</span> during free nights and weekends.
+        </p>
+        <hr/>
+        <h3>Contact me</h3>
+
+        <p>If have any questions about me or <span class="title">We Ride</span> or if you want to give me feedback,
+         criticism or appreciation, I'd love to hear about it!</p>
+
+        <p>Also, if you want to <i>help</i>, don't hesitate to to <b>send me an <a
+            href="mailto:ben@holme.be">e-mail</a></b>.</p>
+
+        <p></p>
+       </div>
+      </div>
+     </div>
+    </section>
+
+   </div>
+  </div>
+  <div data-name="play" class="page dont-push">
+   <div class="page-inner">
+    <section class="para">
+     <span class="img" style="background-image: url('/static/img/slide3.jpg');"></span>
+
+     <h2>
+      Let the <br/>
+      <span class="blood">journey</span> <br/>
+      begin
+     </h2>
+    </section>
+    <section class="download hidden-sm">
+     <p>
+      <a href="http://dl.weridegame.com/WE_RIDE_Launcher.zip" class="btn btn-primary">Download launcher<span>For PC</span></a>
+     </p>
+    </section>
+    <section class="intro">
+     <div class="flex-list s1">
+      <div class="para go-last">
+       <span class="img" style="background-image: url('/static/img/buy.jpg');"></span>
+       <span class="caption">Buying and selling stuff in town</span>
+      </div>
+      <div class="copy-item">
+       <div>
+        <h2>Newbie guide</h2>
+
+        <p>You'll start with pretty much nothing. It might be a good idea to try to locate the <b>Tutorial</b>. When you've made
+         it through there, you should go to <b>Town</b> to get some bandages etc. </p>
+        <div class="note">
+         <p>Most <abbr title="non-player character">NPC</abbr>'s in town will respond to chat commands like
+          '<b>buy</b>' and '<b>sell</b>'. Also, '<b>.guards</b>' might be a good one. <s>For more chat commands try
+           '<b>.help</b>'!</s></p>
+        </div>
+        <p>When you've geared up a bit, go to <b>Newbie Dungeon</b> to kill some skeletons.</p>
+        <p>
+         <span class="btn scroll-btn">OK, got it!</span>
+        </p>
+
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="intro">
+     <div class="flex-list s1">
+      <div class="para">
+       <span class="img" style="background-image: url('/static/img/crim.jpg');"></span>
+       <span class="caption">Murderers, criminals and friendly characters</span>
+      </div>
+      <div class="copy-item">
+       <div>
+        <h3>Be good. Or don't get caught! </h3>
+
+        <p>In some areas, like in Town, there's guards to protect you from criminals and murderers.</p>
+
+        <p><b>If you offend</b> another friendly character, a blue, you will be flagged criminal, gray, and wont get protection
+         from town guards.</p>
+
+        <p><b>If you kill</b> too many blues, you will be flagged murderer, red. The guards may be called to kill reds, simply
+         for being inside the guarded area. So if you can't be stay out of trouble, stay out of Town!</p>
+
+        <p>
+         <span class="btn scroll-btn">Player vs player</span>
+        </p>
+
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="intro">
+     <div class="flex-list s1">
+      <div class="para go-last">
+       <span class="img" style="background-image: url('/static/img/slide2.jpg');"></span>
+       <span class="caption">Player vs player</span>
+      </div>
+      <div class="copy-item">
+       <div>
+        <h3>Player vs player</h3>
+
+        <p>Now to the fun stuff. Killing another player will give you one kill and some bounty on your head. How much
+         bounty depends on how many kills your victim had.</p>
+
+        <div class="note"><p>To collect bounty, cut off the head of the wanted, bring it to a bank, and say '<b>I
+           claim my reward!</b>'.</p></div>
+        <p>In <abbr title="player versus player">pvp</abbr>, speed is key, so make sure you've configured your hotkeys and equipped the best
+         combination of armors and weapons you can muster!</p>
+        <p>You can see the top six fighters, and the reward for killing them, in the Score section!</p>
+        <p>
+         <span class="btn page-btn" data-index="2">Score</span>
+        </p>
+
+       </div>
+      </div>
+     </div>
+    </section>
+   </div>
+  </div>
+  <div data-name="wiki" class="page dont-push">
+   <div class="page-inner">
+    <div class="flex-list s1">
+     <div class="para go-last">
+      <span class="img" style="background-image: url(&quot;/static/img/buy.jpg&quot;); transform: translate(0px, -30.85px);"></span>
+      <span class="caption">Buying and selling stuff in town</span>
+     </div>
+     <div class="copy-item">
+      <div>
+       <h2>Skills & Classes</h2>
+
+       <p>In <span class="title">We Ride</span> you character's skills determines what you can do.</p>
+
+        <p>Any action, from
+        fighting monsters in dungeons to smithing equipment with unique properties or taming wild animals, has a certain skill
+       tied to it.</p>
+       <p>Some skills are related and form classes. Make sure you plan your training carefully and your character will become
+       truly skillful!</p>
+      </div>
+     </div>
+    </div>
+    <section class="tabs">
+     <input id="warrior" checked name="classes" type="radio">
+     <input id="ranger" name="classes" type="radio">
+     <input id="mage" name="classes" type="radio">
+     <input id="thief" name="classes" type="radio">
+     <input id="crafter" name="classes" type="radio">
+     <nav>
+      <label for="warrior">Warrior</label>
+      <label for="ranger">Ranger</label>
+      <label for="mage">Mage</label>
+      <label for="thief">Thief</label>
+      <label for="crafter">Crafter</label>
+     </nav>
+     <section class="warrior">
+      <section class="centered-heading">
+       <div>
+        <h2>The Warrior</h2>
+       </div>
+      </section>
+      <section>
+       <div class="flex-list s1">
+        <div class="copy-item">
+         <div>
+          <h3>Skills</h3>
+          <h4>Defence</h4>
+          <p>Higher skill absorbs greater physical damage.</p>
+          <h4>Melee</h4>
+          <p>Higher skill deals more melee damage.</p>
+          <h4>Healing</h4>
+          <p>Use bandages and apply on self or other character. Higher skill restores more health.</p>
+         </div>
+        </div>
+        <div class="copy-item">
+         <div>
+          <h3>Class specification</h3>
+          <ul class="pros">
+           <li>Faster healing</li>
+           <li>Deal more physical damage</li>
+           <li>Absorb more physical damage</li>
+          </ul>
+          <ul class="cons">
+           <li>Absorb less magical damage</li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </section>
+     </section>
+     <section class="ranger">
+      <section class="centered-heading">
+       <div>
+        <h2>The Ranger</h2>
+       </div>
+      </section>
+      <section>
+       <div class="flex-list s1">
+        <div class="copy-item">
+         <div>
+          <h3>Skills</h3>
+          <h4>Archery</h4>
+          <p>Higher skill deals more archery damage.</p>
+          <h4>Taming</h4>
+          <p>Us to tame wild animals and creatures to keep as companions. Higher skill unlocks greater tamable creatures.</p>
+          <h4>Tracking</h4>
+          <p>Use to find nearby characters. Higher skill tracks a greater area.</p>
+         </div>
+        </div>
+        <div class="copy-item">
+         <div>
+          <h3>Class specification</h3>
+          <ul>
+           <li>Deal more archery damage</li>
+          </ul>
+          <div class="note">
+           <p>The ranger class is currently in development.</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+     </section>
+     <section class="mage">
+      <section class="centered-heading">
+       <div>
+        <h2>The Mage</h2>
+       </div>
+      </section>
+      <section>
+       <div class="flex-list s1">
+        <div class="copy-item">
+         <div>
+          <h3>Skills</h3>
+          <h4>Magery</h4>
+          <p>Use to cast spells. Higher skill deals more magical damage, absorbs more magical damage and gives greater chance of casting difficult spells.</p>
+          <h4>Alchemy</h4>
+          <p>Use to make potions. Higher skill unlocks recipes for more potent potions.</p>
+          <h4>Meditation</h4>
+          <p>Use to restore mana. Higher skill gives greater chance of entering a meditative trance.</p>
+         </div>
+        </div>
+        <div class="copy-item">
+         <div>
+          <h3>Class specification</h3>
+          <ul class="pros">
+           <li>Faster meditation</li>
+           <li>Deal more magical damage</li>
+           <li>Absorb more magical damage</li>
+          </ul>
+          <ul class="cons">
+           <li>Absorb less physical damage.</li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </section>
+     </section>
+     <section class="thief">
+      <section class="centered-heading">
+       <div>
+        <h2>The Thief</h2>
+       </div>
+      </section>
+      <section>
+       <div class="tbd">COMING SOON!</div>
+      </section>
+     </section>
+     <section class="crafter">
+      <section class="centered-heading">
+       <div>
+        <h2>The Crafter</h2>
+       </div>
+      </section>
+      <section>
+       <div class="tbd">COMING SOON!</div>
+      </section>
+     </section>
+    </section>
+   </div>
+  </div>
+  <div data-name="score" class="page dont-push">
+   <div class="page-inner">
+    <section class="para" style="background-image: url('/static/img/slide2.jpg');">
+     <h2>
+      Ready for some <br/>
+      <span class="blood">hardcore</span> <br/>
+      pvpmmorpg!?
+     </h2>
+    </section>
+    <section class="centered-heading">
+     <div>
+      <h2>The score</h2>
+     </div>
+    </section>
+    <div class="scoreboard js-get-chars">
+    </div>
+   </div>
+  </div>
+
+ </div>
+</div>

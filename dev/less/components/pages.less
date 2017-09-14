@@ -1,0 +1,122 @@
+.pages {
+	width: 100vw;
+	min-height: 1px;
+	margin-top: @headerHeight / 2;
+	position: relative;
+	.pages-wrapper {
+		position: relative;
+		.control {
+			height: @footerHeight;
+			position: fixed;
+			z-index: 2;
+			border-top: 2px solid @strokeColor;
+			box-shadow: fade(#191e23, 90) 0 0 40px 20px;
+			background-color: @backgroundColor;
+			background-image: url('/static/img/1.jpg');
+			left: 0;
+			right: 0;
+			bottom: 0;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: stretch;
+			cursor: pointer;
+			> span {
+				opacity: 0;
+				padding: 0 30px;
+				font-size: 20px;
+				@media @smQ {
+					padding: 0 25px;
+					font-size: 15px;
+				}
+				text-transform: uppercase;
+				color: @color;
+				font-weight: bold;
+				transition: all 0.1s;
+				display: flex;
+				align-items: center;
+				border: solid transparent 2px;
+				&.active {
+					transform: scale(1.2);
+					background-image: url('/static/img/1.jpg');
+					border: solid @strokeColor 2px;
+					color: @headingColor;
+				}
+			}
+			&.active {
+				> span {
+					opacity: 1;
+					transition: all 0.5s;
+				}
+			}
+			&:hover {
+				span.active {
+					transform: scale(1);
+					border: solid transparent 2px;
+					color: @color;
+					background-image: none;
+					&:hover {
+						color: @headingColor;
+					}
+				}
+				span:hover {
+					transform: scale(1.2);
+					background-image: url('/static/img/1.jpg');
+					border: solid @strokeColor 2px;
+					color: @color;
+				}
+			}
+		}
+		.page {
+			@px: 15%;
+			@py: 0px;
+			@t: .5s;
+			@r: 0deg;
+			@s: 1;
+			.hidden() {
+				transform: scale(@s) translate(-@px, @py) rotate(-@r);
+			}
+			display: none;
+			transform: scale(@s) translate(@px, @py) rotate(@r);
+			transition: all @t;
+			transform-origin: 50% 0;
+			transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+			filter: blur(15px);
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			&.dont-push {
+				height: 0;
+				width: 0;
+			}
+			&.inactive {
+				.hidden();
+				&.go-left {
+					transform: scale(@s) translate(@px, @py) rotate(@r);
+					position: absolute;
+					top: auto;
+				}
+			}
+			&.active {
+				z-index: 1;
+				opacity: 1;
+				position: relative;
+				transform: scale(1) translate(0, 0) rotate(0);
+				filter: blur(0px);
+				transition-delay: @t;
+				&.go-left {
+					filter: blur(15px);
+					position: absolute;
+					top: 0;
+					.hidden();
+					opacity: 0;
+					transition: none;
+				}
+			}
+			.page-inner {
+				width: 100vw;
+				margin-bottom: 100px;
+			}
+		}
+	}
+}

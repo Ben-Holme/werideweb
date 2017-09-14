@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include head.ejs %>
+</head>
+<body>
+<div class="page-wrapper">
+	<% include header.ejs %>
+	<div class="page-content">
+		<%- body %>
+	</div>
+	<% include footer.ejs %>
+</div>
+<%if (isLocal) { %>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js"></' + 'script>')</script>
+<% } %>
+</body>
+</html>

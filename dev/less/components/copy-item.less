@@ -1,0 +1,27 @@
+.copy-item {
+	text-align: left;
+	.s1 div& > div {
+		padding: @xlMargin;
+	}
+	h3 {
+		font-size: 18px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+	}
+	img {
+		&.pull-right {
+			width: 60%;
+			margin-right: -10%;
+			margin-top: -10%;
+			float: right;
+		}
+		&.ben {
+			margin-bottom: -18%;
+			@media @smQ {
+				margin-left: -10%;
+				width: 80%;
+				margin-right: -20%;
+			}
+		}
+	}
+}

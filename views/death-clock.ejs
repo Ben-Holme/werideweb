@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="death-clock">
+<head>
+	<title>Node app</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/app.css" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+	<script type="text/javascript" data-main="/static/js/main.js" src="/static/js/vendor/requirejs/require.js"></script>
+</head>
+<body>
+<div class="page">
+	<section class="settings"></section>
+	<main>
+		<div>
+			<div class="death"></div>
+			<div class="clock">
+				<div class="years">yy</div>
+				<div class="days">ddd</div>
+				<div class="hours">hh</div>
+				<div class="minutes">mm</div>
+				<div class="seconds">ss</div>
+			</div>
+		</div>
+	</main>
+	<section class="stuff"></section>
+</div>
+<%if (isLocal) { %>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js"></' + 'script>')</script>
+<% } %>
+</body>
+</html>
+

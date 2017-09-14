@@ -1,0 +1,85 @@
+.char-list {
+	list-style: none;
+	text-align: left;
+	margin: 1rem 0 0;
+	padding: 0;
+	position: relative;
+	&.fx {
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			width: 90px;
+			height: 270px;
+			top: -30px;
+			right: -38px;
+			animation: splatt 2s both;
+
+			border-radius: 50%;
+			background-image: url('/static/img/bld.png');
+			background-size: 100% auto;
+		}
+		@keyframes splatt {
+			0% {
+				height: 170px;
+				opacity: 0;
+				transform: scale(0.5);
+			}
+
+			5% {
+				height: 70px;
+				opacity: 1;
+				transform: scale(1);
+			}
+			100% {
+				height: 130px;
+			}
+		}
+	}
+	li {
+		z-index: 2;
+		position: relative;
+		border-bottom: fade(@color, 5) 1px solid;
+		box-shadow: inset fade(@black, 30) 0 -1px 0;
+		padding: 10px 0;
+		opacity: 0;
+		animation-fill-mode: both;
+		animation-duration: 1s;
+		animation-name: fade-in;
+		&:first-child {
+			color: @headingColor;
+			font-weight: bold;
+			+ li {
+				animation-delay: 0.05s;
+				color: @headingColor;
+				+ li {
+					animation-delay: 0.1s;
+					color: fade(@headingColor, 60);
+					+ li {
+						animation-delay: 0.15s;
+						+ li {
+							animation-delay: 0.2s;
+							+ li {
+								animation-delay: 0.25s;
+							}
+						}
+					}
+				}
+			}
+			@keyframes fade-in {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		}
+		> span {
+			float: right;
+			span {
+				padding-right: 10px;
+			}
+		}
+	}
+}

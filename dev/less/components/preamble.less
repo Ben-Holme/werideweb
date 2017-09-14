@@ -1,0 +1,28 @@
+.preamble {
+	.shaded();
+	text-align: center;
+	font-size: 25px;
+	@media @smQ {
+		font-size: 4.5vw;
+	}
+	text-shadow: 0 -1px 0 #000;
+	p {
+		color: @key2;
+		display: block;
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.8em;
+		& + p {
+			margin-top: 1em;
+		}
+	}
+	+ * {
+		border-top: 0;
+		> *:first-child {
+			border-top: 0 !important;
+			> div:first-child {
+				border-top: 0 !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+html.death-clock {
+	.page {
+		text-align: center;
+		main {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			> div {
+				flex-basis: 100%;
+				.death {
+					width: 20vw;
+					height: 20vw;
+					margin: auto;
+					background-color: fade(@white, 10);
+					border-radius: 1000px;
+				}
+				.clock {
+					margin-top: 50px;
+					font-size: 5vw;
+					text-transform: uppercase;
+					> div {
+						display: inline-block;
+						+ div {
+							&:before {
+								content: ': ';
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

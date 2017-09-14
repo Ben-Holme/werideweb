@@ -1,0 +1,153 @@
+.intro {
+	min-height: @pageHeight;
+	position: relative;
+	display: flex;
+	.embedded {
+		> div {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			overflow: hidden;
+			.text-box {
+				z-index: 3;
+				position: absolute;
+				top: 50px;
+				bottom: 0;
+				left: @xlMargin;
+				right: 55%;
+				@media @smQ {
+					left: 25px;
+					top: 0;
+					right: 25px;
+				}
+				display: flex;
+				text-align: left;
+				align-items: center;
+				justify-content: center;
+				animation: slide-in 1s;
+				animation-delay: 1s;
+				animation-fill-mode: both;
+				p {
+					width: 80%;
+					@media @smQ {
+						text-align: center;
+						width: 100%;
+					}
+				}
+
+				.btn {
+					animation: slide-up 1s;
+					animation-fill-mode: both;
+					//animation: fadeUp 0.5s;
+					&:nth-child(1) {
+						animation-delay: 2s;
+					}
+					&:nth-child(2) {
+						animation-delay: 2.3s;
+					}
+				}
+			}
+			h1 {
+				font-size: 5vw;
+				@media @smQ {
+					font-size: 11VW;
+					text-align: center;
+				}
+			}
+			H2 {
+				color: @key2;
+				@media @mdQ {
+					font-size: 7VW;
+				}
+			}
+			.image-slider {
+				display: none;
+				@media @mdQ {
+					display: block;
+				}
+			}
+			video {
+				position: absolute;
+				top: 50%;
+				bottom: 0;
+				left: 50%;
+				right: 0;
+				min-width: 100%;
+				min-height: 100%;
+				transform: translate(-50%, -50%);
+				@media @mdQ {
+					display: none;
+				}
+			}
+		}
+	}
+}
+.stats {
+	height: 100vh;
+	box-sizing: border-box;
+	padding: 100px 0;
+}
+
+.para {
+	overflow: hidden;
+	.page-inner > & {
+		margin-top: 50px;
+		@media @smQ {
+			margin-top: 0;
+		}
+	}
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	h2 {
+		opacity: 0;
+		transition: all 0.5s;
+		transition-delay: 1s;
+		transform: scale(0.95);
+		.page.active & {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+	@media @smQ {
+		margin-top: 0;
+		h2 {
+			font-size: 8vw;
+		}
+	}
+	min-height: 50vh;
+	@media @smQ {
+		min-height: 60vw;
+	}
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border: 0 !important;
+	position: relative;
+	.caption {
+		position: absolute;
+		left: 25px;
+		right: 25px;
+		bottom: 20px;
+		font-size: 10px;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-align: left;
+	}
+	.img {
+		box-shadow: inset #000 0 0 50px;
+		position: absolute;
+		top: -10%;
+		height: 120%;
+		left: 0;
+		width: 100%;
+		box-sizing: border-box;
+		background-size: cover;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		-webkit-backface-visibility: hidden;
+	}
+}

@@ -1,0 +1,94 @@
+.flex-list {
+	&:not(.flex-list-3) {
+		.flex-list(2);
+	}
+	&.flex-list-3 {
+		.flex-list(3);
+	}
+	&.s1 {
+		.s1();
+	}
+}
+.flex-list(@columns) {
+	@width: 1280px;
+	display: flex;
+	@media @smQ {
+		display: block;
+	}
+	align-content: stretch;
+	flex-wrap: wrap;
+	> div {
+		flex-basis: 100% / @columns;
+		flex-grow: 1;
+		//width: 50%;
+		> div {
+			max-width: @width / @columns;
+			@media @smQ {
+				max-width: none;
+			}
+		}
+
+		&.go-last {
+			order: 1000;
+			@media @smQ {
+				order: 0;
+			}
+		}
+
+		// All middle columns
+		@minus: @columns - 1;
+		&:not(:nth-child(@{columns}n-@{minus})):not(:nth-child(@{columns}n)) {
+			flex-grow: 0;
+			max-width: @width / @columns;
+			@media @smQ {
+				max-width: none;
+			}
+		}
+		// First in row
+		&:nth-child(@{columns}n-@{minus}) > div {
+			margin-left: auto;
+			flex-basis: 100% / @columns;
+		}
+		// Last in row
+		&:nth-child(@{columns}n) > div {
+			margin-left: 0;
+		}
+		// Last child & last in row
+		&:last-child:nth-child(@{columns}n) > div {
+			flex-basis: 100% / @columns;
+		}
+		// Last item & first in row
+		&:last-child:nth-child(@{columns}n-@{minus}) {
+			flex-basis: 100%;
+			> div {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		// Middle columns & last
+		&:last-child:not(:nth-child(@{columns}n-@{minus})):not(:nth-child(@{columns}n)) {
+			flex-grow: 1;
+			flex-basis: 100% / @columns;
+			> div {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.s1() {
+	text-align: center;
+	width: 100%;
+	> div {
+		border-top: 2px solid fade(@white, 5);
+		background-image: radial-gradient(ellipse 70% 40% at 50% 50%, fade(#40444e, 45), transparent);
+		border-right: 2px solid fade(@white, 5);
+		box-sizing: border-box;
+		> div {
+			padding: 50px;
+		}
+	}
+	.para + div {
+		border-left: 2px solid fade(@white, 5);
+	}
+}

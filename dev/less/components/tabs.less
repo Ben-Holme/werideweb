@@ -1,0 +1,119 @@
+.tabs {
+	border-top: solid @strokeColor 2px;
+	border-bottom: solid @strokeColor 2px;
+	nav {
+		margin: 0 8vw;
+		display: flex;
+		justify-content: center;
+		> label {
+			text-align: center;
+			padding: 20px 20px;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 14px;
+			border: solid 2px fade(@strokeColor, 0);
+			color: @key2;
+			transition: all 0.5s;
+			cursor: pointer;
+			background-image: url(/static/img/1.jpg);
+			&:hover {
+				z-index: 1;
+				transform: scale(1.2);
+				border: @strokeColor solid 2px;
+				color: @white;
+			}
+		}
+		&:hover {
+			> label {
+				transform: scale(1) !important;
+				color: @key2 !important;
+				z-index: 0;
+				border-color: fade(@strokeColor, 0) !important;
+				&:hover {
+					z-index: 1;
+					border-color: @strokeColor !important;
+					transform: scale(1.2) !important;
+					color: @key2 !important;
+				}
+			}
+		}
+	}
+	> section {
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		.tbd {
+			min-height: 50vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: fade(@black, 80);
+			text-shadow: fade(#fff, 10) 0 1px 0;
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
+	}
+	input {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		&:checked {
+			.selected() {
+				transform: scale(1.2);
+				border: @strokeColor solid 2px;
+				color: @white;
+				z-index: 1;
+				&:hover {
+					color: @white !important;
+				}
+			}
+			.visible() {
+				visibility: visible;
+				transition: all 1s;
+				transform: scale(1);
+				opacity: 1;
+				position: relative;
+			}
+			&#warrior {
+				~ nav label[for="warrior"] {
+					.selected();
+				}
+				~ .warrior {
+					.visible();
+				}
+			}
+			&#ranger {
+				~ nav label[for="ranger"] {
+					.selected();
+				}
+				~ .ranger {
+					.visible();
+				}
+			}
+			&#mage {
+				~ nav label[for="mage"] {
+					.selected();
+				}
+				~ .mage {
+					.visible();
+				}
+			}
+			&#thief {
+				~ nav label[for="thief"] {
+					.selected();
+				}
+				~ .thief {
+					.visible();
+				}
+			}
+			&#crafter {
+				~ nav label[for="crafter"] {
+					.selected();
+				}
+				~ .crafter {
+					.visible();
+				}
+			}
+		}
+	}
+}

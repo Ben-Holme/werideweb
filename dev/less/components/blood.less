@@ -1,0 +1,44 @@
+.blood {
+	display: inline-block;
+	background-position: 50% 50%;
+	background-image: none;
+	line-height: 1em;
+	background-size: 100%;
+	transform: scale(1);
+	transition: all 0.1s;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: fade(#fff, 100);
+	transition-delay: 0s;
+	.page.active & {
+		transition-delay: 2s;
+		html.backgroundcliptext & {
+			animation: texture .1s;
+			animation-delay: 2s;
+			-webkit-text-fill-color: transparent;
+			animation-fill-mode: both;
+		}
+		transform: scale(1.7) rotate(-2deg);
+		line-height: 1.5em;
+	}
+	@keyframes texture {
+		from {
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: fade(#fff, 100);
+		}
+		to {
+			-webkit-text-fill-color: fade(#fff, 0);
+			background-image: url('/static/img/blood.png');
+		}
+	}
+
+	//&.anim {
+	//	html.backgroundcliptext & {
+	//		background-image: url('/static/img/blood.png');
+	//	}
+	//	html.no-backgroundcliptext & {
+	//	}
+	//	transform: scale(1.7) rotate(-2deg);
+	//	line-height: 1.5em;
+	//	-webkit-text-fill-color: transparent;
+	//}
+}

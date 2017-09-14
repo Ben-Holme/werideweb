@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,800');
+
+::selection {
+	background: @key1;
+}
+
+html {
+	font-size: 15px;
+	min-height: 100vh;
+	position: relative;
+	overflow-x: hidden;
+}
+
+body {
+	min-height: 100vh;
+	background-color: @backgroundColor;
+	background-image: url('/static/img/1.jpg');
+	color: @color;
+	font-family: 'Raleway', sans-serif;
+}
+
+video {
+	opacity: 0;
+	transition: all 2s;
+	&.active {
+		opacity: 1;
+	}
+}
+
+hr {
+	margin-top: 3.2em;
+	margin-bottom: 3.2em;
+	border: 0;
+	border-top: 2px solid fade(@white, 5);
+}
+
+p {
+	line-height: 1.55em;
+	margin-top: 1.6em;
+	b {
+		color: fade(@white, 70);
+	}
+	//h1 + &,
+	//h2 + &,
+	//h3 + &,
+	//h4 + &,
+	//h5 + & {
+	//	margin-top: 1em;
+	//}
+}
+
+a {
+	color: fade(@white, 70);
+	transition: all 0.5s;
+	&:hover {
+		color: fade(@white, 90);
+		transition: all 0s;
+		text-decoration: none;
+	}
+	.note & {
+		color: saturate(lighten(@key2, 15), 15);
+		&:hover {
+			color: saturate(lighten(@key2, 25), 25);
+		}
+	}
+}
+
+.link {
+	color: @key1;
+	cursor: pointer;
+	transition: all .5s;
+	&:hover {
+	transition: all 0s;
+		color: lighten(@key1, 5);
+	}
+}
+
+h1, h2, h3 {
+	font-weight: 900;
+	color: @headingColor;
+	text-transform: uppercase;
+	p + & {
+		margin-top: 2.8em;
+	}
+	+ h1, + h2, + h3, + h4, + h5, + h6 {
+		margin-top: 1.6em;
+	}
+}
+
+.h1, h1 {
+	font-size: 70px;
+}
+.h2, h2 {
+	font-size: 50px;
+	@media @smQ {
+		font-size: 13vw;
+	}
+}
+.h3, h3 {
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+}
+.h4, h4 {
+	letter-spacing: 0.1em;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-top: 2em;
+	color: fade(@headingColor, 75);
+	+ p {
+		margin-top: 0.5em;
+	}
+}
+.h5, h5 {
+	font-size: 30px;
+}
+.h6, h6 {
+	font-size: 20px;
+}
+
+.container {
+	.container();
+}
+
+.container() {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+abbr {
+	text-decoration: none;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	border-bottom: 0 !important;
+}
+span.title {
+	text-transform: uppercase;
+}
+
+.note {
+	padding: 20px;
+	border: solid 2px @strokeColor;
+	margin-top: 1.6em;
+	color: @key2;
+	p:first-child {
+		margin-top: 0;
+	}
+	h3 {
+		margin-top: 0.5em;
+		color: saturate(lighten(@key2, 25), 25);
+	}
+	b {
+		color: saturate(lighten(@key2, 25), 25);
+	}
+}
+
+.hidden-sm {
+	@media @smQ {
+		display: none !important;
+	}
+}
