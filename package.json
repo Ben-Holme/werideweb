@@ -9,7 +9,7 @@
     "openshift"
   ],
   "scripts": {
-    "postinstall": "grunt",
+    "postinstall": "grunt build",
     "start": "node server.js"
   },
   "author": {
