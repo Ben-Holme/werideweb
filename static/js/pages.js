@@ -57,6 +57,8 @@ define([
       if(hash !== '') {
         var index = this.$el.find('.page[data-name=' + window.location.hash.replace('#', '') + ']').index() - 1;
         this.currentIndex = index < 0 ? 0 : index;
+
+		this.$el.attr({'data-page': this.currentIndex});
       }
     },
     onClickPageButton: function (e) {
@@ -148,6 +150,8 @@ define([
 			}, 500);
 			this.$control.find('span').removeClass(activeClass);
 			this.$control.find('span').eq(this.currentIndex).addClass(activeClass);
+
+            that.$el.attr({'data-page': this.currentIndex});
 		}
 	});
 	return Pages;

@@ -95,6 +95,14 @@ h1, h2, h3 {
 	@media @smQ {
 		font-size: 13vw;
 	}
+	&.small {
+		font-size: 35px;
+		font-weight: normal;
+		text-transform: none;
+		@media @smQ {
+			font-size: 12vw;
+		}
+	}
 }
 .h3, h3 {
 	font-size: 18px;
@@ -160,5 +168,23 @@ span.title {
 .hidden-sm {
 	@media @smQ {
 		display: none !important;
+	}
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 1.6em;
+
+	tr {
+		td, th {
+			padding: 5px 0;
+		}
+		th {
+			color: @headingColor;
+		}
+		td {
+			border-top: solid 2px @strokeColor;
+		}
 	}
 }

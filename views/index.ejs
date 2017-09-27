@@ -297,163 +297,315 @@
    </div>
   </div>
   <div data-name="wiki" class="page dont-push">
-   <div class="page-inner">
-    <div class="flex-list s1">
-     <div class="para go-last">
-      <span class="img" style="background-image: url(&quot;/static/img/buy.jpg&quot;); transform: translate(0px, -30.85px);"></span>
-      <span class="caption">Buying and selling stuff in town</span>
-     </div>
-     <div class="copy-item">
-      <div>
-       <h2>Skills & Classes</h2>
+   <div class="page-inner wiki">
+    <div class="wiki-page" data-wiki-page="intro">
 
-       <p>In <span class="title">We Ride</span> you character's skills determines what you can do.</p>
+     <section class="para">
+      <span class="img" style="background-image: url('/static/img/wiki.jpg'); transform: translate(0px, -5px);"></span>
+       <div class="wiki-intro">
+        <h2>Wiki & Lore</h2>
+        <p>We Ride in a big evil world so don't expect to find too many helping hands. If you want to prevail, you must
+         first conquer, and if you wanna have a fighting chance, you must first study!</p>
+        <p>This is the place for knowledge.</p>
+      </div>
+     </section>
 
-        <p>Any action, from
-        fighting monsters in dungeons to smithing equipment with unique properties or taming wild animals, has a certain skill
-       tied to it.</p>
-       <p>Some skills are related and form classes. Make sure you plan your training carefully and your character will become
-       truly skillful!</p>
+    </div>
+    <div class="wiki-page" data-wiki-page="classes">
+     <div class="flex-list s1">
+      <div class="copy-item">
+       <div>
+        <h2>Classes</h2>
+        <p>Certain skills have intimate bounds to one another. If you plan your skills well, some truly advantageous abilities might unveil.</p>
+        <p>To specialize and improve in a class, you must keep to the skills within that class.</p>
+        <table>
+         <tr>
+          <th>Level</th>
+          <th>Skill points</th>
+          <th>Purity</th>
+         </tr>
+         <tr>
+          <td>1</td>
+          <td>150</td>
+          <td>50%</td>
+         </tr>
+         <tr>
+          <td>2</td>
+          <td>225</td>
+          <td>75%</td>
+         </tr>
+         <tr>
+          <td>3</td>
+          <td>300</td>
+          <td>90%</td>
+         </tr>
+         <tr>
+          <td>4</td>
+          <td>350</td>
+          <td>95%</td>
+         </tr>
+        </table>
+       </div>
+      </div>
+      <div class="para">
+       <span class="img" style="background-image: url(&quot;/static/img/buy.jpg&quot;); transform: translate(0px, -30.85px);"></span>
+       <span class="caption">Lorem ipsum</span>
       </div>
      </div>
     </div>
-    <section class="tabs">
-     <input id="warrior" checked name="classes" type="radio">
-     <input id="ranger" name="classes" type="radio">
-     <input id="mage" name="classes" type="radio">
-     <input id="thief" name="classes" type="radio">
-     <input id="crafter" name="classes" type="radio">
-     <nav>
-      <label for="warrior">Warrior</label>
-      <label for="ranger">Ranger</label>
-      <label for="mage">Mage</label>
-      <label for="thief">Thief</label>
-      <label for="crafter">Crafter</label>
-     </nav>
-     <section class="warrior">
-      <section class="centered-heading">
-       <div>
-        <h2>The Warrior</h2>
-       </div>
-      </section>
-      <section>
-       <div class="flex-list s1">
-        <div class="copy-item">
-         <div>
-          <h3>Skills</h3>
-          <h4>Defence</h4>
-          <p>Higher skill absorbs greater physical damage.</p>
-          <h4>Melee</h4>
-          <p>Higher skill deals more melee damage.</p>
-          <h4>Healing</h4>
-          <p>Use bandages and apply on self or other character. Higher skill restores more health.</p>
-         </div>
-        </div>
-        <div class="copy-item">
-         <div>
-          <h3>Class specification</h3>
-          <ul class="pros">
-           <li>Faster healing</li>
-           <li>Deal more physical damage</li>
-           <li>Absorb more physical damage</li>
-          </ul>
-          <ul class="cons">
-           <li>Absorb less magical damage</li>
-          </ul>
-         </div>
+    <section class="wiki-page warrior" data-wiki-page="warrior">
+     <div class="text-section">
+      <h2 class="small">The Warrior</h2>
+      <div class="two-col">
+       <p>The strength of arms and legs, the speed and precision that only a life in constant competition may produce -- that is the virtues of the warrior.</p>
+       <p>You aren't afraid of scratches and bruises. What doesn't kill you makes you stronger. The mystery of the magical world however, you better stay clear of.</p>
+      </div>
+     </div>
+     <section>
+      <div class="flex-list s1">
+       <div class="copy-item">
+        <div>
+         <h3>Skills</h3>
+         <h4>Defence</h4>
+         <p>Higher skill absorbs greater physical damage.</p>
+         <h4>Melee</h4>
+         <p>Higher skill deals more melee damage.</p>
+         <h4>Healing</h4>
+         <p>Use bandages and apply on self or other character. Higher skill restores more health.</p>
         </div>
        </div>
-      </section>
-     </section>
-     <section class="ranger">
-      <section class="centered-heading">
-       <div>
-        <h2>The Ranger</h2>
-       </div>
-      </section>
-      <section>
-       <div class="flex-list s1">
-        <div class="copy-item">
-         <div>
-          <h3>Skills</h3>
-          <h4>Archery</h4>
-          <p>Higher skill deals more archery damage.</p>
-          <h4>Taming</h4>
-          <p>Us to tame wild animals and creatures to keep as companions. Higher skill unlocks greater tamable creatures.</p>
-          <h4>Tracking</h4>
-          <p>Use to find nearby characters. Higher skill tracks a greater area.</p>
-         </div>
-        </div>
-        <div class="copy-item">
-         <div>
-          <h3>Class specification</h3>
-          <ul>
-           <li>Deal more archery damage</li>
-          </ul>
-          <div class="note">
-           <p>The ranger class is currently in development.</p>
-          </div>
-         </div>
+       <div class="copy-item">
+        <div>
+         <h3>Class specification</h3>
+         <ul class="pros">
+          <li>Faster healing</li>
+          <li>Deal more physical damage</li>
+          <li>Absorb more physical damage</li>
+         </ul>
+         <ul class="cons">
+          <li>Absorb less magical damage</li>
+         </ul>
         </div>
        </div>
-      </section>
-     </section>
-     <section class="mage">
-      <section class="centered-heading">
-       <div>
-        <h2>The Mage</h2>
-       </div>
-      </section>
-      <section>
-       <div class="flex-list s1">
-        <div class="copy-item">
-         <div>
-          <h3>Skills</h3>
-          <h4>Magery</h4>
-          <p>Use to cast spells. Higher skill deals more magical damage, absorbs more magical damage and gives greater chance of casting difficult spells.</p>
-          <h4>Alchemy</h4>
-          <p>Use to make potions. Higher skill unlocks recipes for more potent potions.</p>
-          <h4>Meditation</h4>
-          <p>Use to restore mana. Higher skill gives greater chance of entering a meditative trance.</p>
-         </div>
-        </div>
-        <div class="copy-item">
-         <div>
-          <h3>Class specification</h3>
-          <ul class="pros">
-           <li>Faster meditation</li>
-           <li>Deal more magical damage</li>
-           <li>Absorb more magical damage</li>
-          </ul>
-          <ul class="cons">
-           <li>Absorb less physical damage.</li>
-          </ul>
-         </div>
-        </div>
-       </div>
-      </section>
-     </section>
-     <section class="thief">
-      <section class="centered-heading">
-       <div>
-        <h2>The Thief</h2>
-       </div>
-      </section>
-      <section>
-       <div class="tbd">COMING SOON!</div>
-      </section>
-     </section>
-     <section class="crafter">
-      <section class="centered-heading">
-       <div>
-        <h2>The Crafter</h2>
-       </div>
-      </section>
-      <section>
-       <div class="tbd">COMING SOON!</div>
-      </section>
+      </div>
      </section>
     </section>
+    <section class="wiki-page ranger" data-wiki-page="ranger">
+     <div class="text-section">
+      <h2 class="small">The Ranger</h2>
+      <div class="two-col">
+       <p>A lone wolf, a master of bow and arrow, and a true survivor -- the ranger is a way of life in harmony with the elements and the wild nature.</p>
+       <p>Adventure and exploration is your calling. What ever lies in your path there's a way around it. But be careful, your bow isn't much help in close battle.</p>
+      </div>
+     </div>
+     <section>
+      <div class="flex-list s1">
+       <div class="copy-item">
+        <div>
+         <h3>Skills</h3>
+         <h4>Archery</h4>
+         <p>Higher skill deals more archery damage.</p>
+         <h4>Taming</h4>
+         <p>Us to tame wild animals and creatures to keep as companions. Higher skill unlocks greater tamable creatures.</p>
+         <h4>Tracking</h4>
+         <p>Use to find nearby characters. Higher skill tracks a greater area.</p>
+         <h4>Camping</h4>
+         <p>Gather kindlings from trees and light a campfire to regenerate health.</p>
+        </div>
+       </div>
+       <div class="copy-item">
+        <div>
+         <h3>Class specification</h3>
+         <ul>
+          <li>Deal more archery damage</li>
+          <li>Heal more with campfires</li>
+         </ul>
+         <div class="note">
+          <p>The ranger class is currently in development.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section class="wiki-page mage" data-wiki-page="mage">
+     <div class="text-section">
+      <h2 class="small">The Mage</h2>
+      <div class="two-col">
+       <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </p>
+       <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </p>
+       <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </p>
+       <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </p>
+      </div>
+     </div>
+     <section>
+      <div class="flex-list s1">
+       <div class="copy-item">
+        <div>
+         <h3>Skills</h3>
+         <h4>Magery</h4>
+         <p>Use to cast spells. Higher skill deals more magical damage, absorbs more magical damage and gives greater chance of casting difficult spells.</p>
+         <h4>Alchemy</h4>
+         <p>Use to make potions. Higher skill unlocks recipes for more potent potions.</p>
+         <h4>Meditation</h4>
+         <p>Use to restore mana. Higher skill gives greater chance of entering a meditative trance.</p>
+        </div>
+       </div>
+       <div class="copy-item">
+        <div>
+         <h3>Class specification</h3>
+         <ul class="pros">
+          <li>Faster meditation</li>
+          <li>Deal more magical damage</li>
+          <li>Absorb more magical damage</li>
+         </ul>
+         <ul class="cons">
+          <li>Absorb less physical damage.</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </section>
+    </section>
+
+
+    <!--<section class="tabs">-->
+     <!--<input id="warrior" checked name="classes" type="radio">-->
+     <!--<input id="ranger" name="classes" type="radio">-->
+     <!--<input id="mage" name="classes" type="radio">-->
+     <!--<input id="thief" name="classes" type="radio">-->
+     <!--<input id="crafter" name="classes" type="radio">-->
+     <!--<nav>-->
+      <!--<label for="warrior">Warrior</label>-->
+      <!--<label for="ranger">Ranger</label>-->
+      <!--<label for="mage">Mage</label>-->
+      <!--<label for="thief">Thief</label>-->
+      <!--<label for="crafter">Crafter</label>-->
+     <!--</nav>-->
+     <!--<section class="warrior">-->
+      <!--<section class="centered-heading">-->
+       <!--<div>-->
+        <!--<h2>The Warrior</h2>-->
+       <!--</div>-->
+      <!--</section>-->
+      <!--<section>-->
+       <!--<div class="flex-list s1">-->
+        <!--<div class="copy-item">-->
+         <!--<div>-->
+          <!--<h3>Skills</h3>-->
+          <!--<h4>Defence</h4>-->
+          <!--<p>Higher skill absorbs greater physical damage.</p>-->
+          <!--<h4>Melee</h4>-->
+          <!--<p>Higher skill deals more melee damage.</p>-->
+          <!--<h4>Healing</h4>-->
+          <!--<p>Use bandages and apply on self or other character. Higher skill restores more health.</p>-->
+         <!--</div>-->
+        <!--</div>-->
+        <!--<div class="copy-item">-->
+         <!--<div>-->
+          <!--<h3>Class specification</h3>-->
+          <!--<ul class="pros">-->
+           <!--<li>Faster healing</li>-->
+           <!--<li>Deal more physical damage</li>-->
+           <!--<li>Absorb more physical damage</li>-->
+          <!--</ul>-->
+          <!--<ul class="cons">-->
+           <!--<li>Absorb less magical damage</li>-->
+          <!--</ul>-->
+         <!--</div>-->
+        <!--</div>-->
+       <!--</div>-->
+      <!--</section>-->
+     <!--</section>-->
+     <!--<section class="ranger">-->
+      <!--<section class="centered-heading">-->
+       <!--<div>-->
+        <!--<h2>The Ranger</h2>-->
+       <!--</div>-->
+      <!--</section>-->
+      <!--<section>-->
+       <!--<div class="flex-list s1">-->
+        <!--<div class="copy-item">-->
+         <!--<div>-->
+          <!--<h3>Skills</h3>-->
+          <!--<h4>Archery</h4>-->
+          <!--<p>Higher skill deals more archery damage.</p>-->
+          <!--<h4>Taming</h4>-->
+          <!--<p>Us to tame wild animals and creatures to keep as companions. Higher skill unlocks greater tamable creatures.</p>-->
+          <!--<h4>Tracking</h4>-->
+          <!--<p>Use to find nearby characters. Higher skill tracks a greater area.</p>-->
+         <!--</div>-->
+        <!--</div>-->
+        <!--<div class="copy-item">-->
+         <!--<div>-->
+          <!--<h3>Class specification</h3>-->
+          <!--<ul>-->
+           <!--<li>Deal more archery damage</li>-->
+          <!--</ul>-->
+          <!--<div class="note">-->
+           <!--<p>The ranger class is currently in development.</p>-->
+          <!--</div>-->
+         <!--</div>-->
+        <!--</div>-->
+       <!--</div>-->
+      <!--</section>-->
+     <!--</section>-->
+     <!--<section class="mage">-->
+      <!--<section class="centered-heading">-->
+       <!--<div>-->
+        <!--<h2>The Mage</h2>-->
+       <!--</div>-->
+      <!--</section>-->
+      <!--<section>-->
+       <!--<div class="flex-list s1">-->
+        <!--<div class="copy-item">-->
+         <!--<div>-->
+          <!--<h3>Skills</h3>-->
+          <!--<h4>Magery</h4>-->
+          <!--<p>Use to cast spells. Higher skill deals more magical damage, absorbs more magical damage and gives greater chance of casting difficult spells.</p>-->
+          <!--<h4>Alchemy</h4>-->
+          <!--<p>Use to make potions. Higher skill unlocks recipes for more potent potions.</p>-->
+          <!--<h4>Meditation</h4>-->
+          <!--<p>Use to restore mana. Higher skill gives greater chance of entering a meditative trance.</p>-->
+         <!--</div>-->
+        <!--</div>-->
+        <!--<div class="copy-item">-->
+         <!--<div>-->
+          <!--<h3>Class specification</h3>-->
+          <!--<ul class="pros">-->
+           <!--<li>Faster meditation</li>-->
+           <!--<li>Deal more magical damage</li>-->
+           <!--<li>Absorb more magical damage</li>-->
+          <!--</ul>-->
+          <!--<ul class="cons">-->
+           <!--<li>Absorb less physical damage.</li>-->
+          <!--</ul>-->
+         <!--</div>-->
+        <!--</div>-->
+       <!--</div>-->
+      <!--</section>-->
+     <!--</section>-->
+     <!--<section class="thief">-->
+      <!--<section class="centered-heading">-->
+       <!--<div>-->
+        <!--<h2>The Thief</h2>-->
+       <!--</div>-->
+      <!--</section>-->
+      <!--<section>-->
+       <!--<div class="tbd">COMING SOON!</div>-->
+      <!--</section>-->
+     <!--</section>-->
+     <!--<section class="crafter">-->
+      <!--<section class="centered-heading">-->
+       <!--<div>-->
+        <!--<h2>The Crafter</h2>-->
+       <!--</div>-->
+      <!--</section>-->
+      <!--<section>-->
+       <!--<div class="tbd">COMING SOON!</div>-->
+      <!--</section>-->
+     <!--</section>-->
+    <!--</section>-->
    </div>
   </div>
   <div data-name="score" class="page dont-push">
@@ -476,4 +628,35 @@
   </div>
 
  </div>
+ <div class="nav-pane">
+   <ul>
+    <li><span data-wiki="intro">Introduction</span></li>
+    <li>
+     <span data-wiki="classes">Classes</span>
+     <ul>
+      <li><span data-wiki="warrior">Warrior</span></li>
+      <li><span data-wiki="ranger">Ranger</span></li>
+      <li><span data-wiki="mage">Mage</span></li>
+      <li><span data-wiki="thief">Thief</span></li>
+      <li><span data-wiki="crafter">Crafter</span></li>
+     </ul>
+    </li>
+    <li>
+     <span>Skills</span>
+     <ul>
+      <li><span>Defence</span></li>
+      <li><span>Melee</span></li>
+      <li><span>Healing</span></li>
+      <li><span>Taming</span></li>
+      <li><span>Archery</span></li>
+      <li><span>Tracking</span></li>
+      <li><span>Alchemy</span></li>
+      <li><span>Magery</span></li>
+      <li><span>Meditation</span></li>
+     </ul>
+    </li>
+    <li><span>Items</span></li>
+    <li><span>Magic</span></li>
+   </ul>
+  </div>
 </div>

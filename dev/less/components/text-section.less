@@ -1,0 +1,20 @@
+.text-section {
+	border-top: 2px solid fade(@white, 5);
+	background-image: radial-gradient(ellipse 70% 40% at 50% 50%, fade(#40444e, 45), transparent);
+	border-right: 2px solid fade(@white, 5);
+	box-sizing: border-box;
+	padding: 8vw;
+}
+
+.two-col {
+	columns: 2;
+	column-gap: 4vw;
+	margin-top: 1.6em;
+	@media @smQ {
+		columns: 0;
+	}
+
+	p:first-of-type {
+		margin-top: 0;
+	}
+}

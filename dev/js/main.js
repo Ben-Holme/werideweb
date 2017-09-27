@@ -54,11 +54,17 @@ require(['jquery', 'modernizr'], function ($) {
 				new Constructor($serverStats);
 			});
 		}
-		var $tabs = $('.tabs');
-		if($tabs.length) {
-			require(['tabs'], function (Constructor) {
-				new Constructor($tabs);
-			});
-		}
+        var $tabs = $('.tabs');
+        if($tabs.length) {
+            require(['tabs'], function (Constructor) {
+                new Constructor($tabs);
+            });
+        }
+        var $wiki = $('.wiki');
+        if($wiki.length) {
+            require(['wiki'], function (Constructor) {
+                new Constructor($wiki);
+            });
+        }
 	});
 });
