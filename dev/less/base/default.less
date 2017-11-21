@@ -110,12 +110,10 @@ h1, h2, h3 {
 	letter-spacing: 0.1em;
 }
 .h4, h4 {
-	letter-spacing: 0.1em;
-	font-size: 12px;
+	font-size: 1rem;
 	font-weight: 600;
-	text-transform: uppercase;
-	margin-top: 2em;
-	color: fade(@headingColor, 75);
+	margin-top: 2.5em;
+	color: @headingColor;
 	+ p {
 		margin-top: 0.5em;
 	}
@@ -181,10 +179,59 @@ table {
 			padding: 5px 0;
 		}
 		th {
-			color: @headingColor;
+			color: fade(@headingColor, 75);
+			font-size: 12px;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
 		}
 		td {
 			border-top: solid 2px @strokeColor;
+		}
+	}
+}
+
+ul.pros,
+ul.cons {
+	list-style: none;
+	padding-left: 0;
+	li {
+		position: relative;
+		padding-left: 1em;
+		&:before {
+			content: '';
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			left: 2px;
+			top: 5px;
+			width: 8px;
+			height: 8px;
+			border-radius: 100%;
+			color: @black;
+		}
+		+ li {
+			margin-top: 0.5em;
+		}
+	}
+
+	+ ul {
+		margin-top: 1em;
+	}
+}
+
+ul.pros {
+	li {
+		&:before {
+			background-color: @key2;
+		}
+	}
+}
+
+ul.cons {
+	li {
+		&:before {
+			background-color: @key1;
 		}
 	}
 }
