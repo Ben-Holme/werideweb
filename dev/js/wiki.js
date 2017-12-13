@@ -20,31 +20,23 @@ define([
             });
         },
         handleScroll: function () {
-            var that = this;
-            $('.wiki-page').each(function (_, el) {
-                var $win = $(window);
-                var val = $(el).offset().top + 500;
-                if (val > $win.scrollTop() && val < ($win.scrollTop() + $win.height())) {
-                    that.scrolledEl = $(el);
-                }
+            if(this.scolledEl !== undefined) {
 
-                // if (val < 0 && val > that.scrolledElTop) {
-                //     console.log('jga');
-                //     that.scrolledElTop = val;
-                //     that.scrolledEl = $(el);
-                // } else if (that.scrolledEl === undefined) {
-                //     that.scrolledElTop = -100;
-                //     that.scrolledEl = $('.wiki-page[data-wiki-page="intro"]');
-                // } else {
-                //     that.scrolledElTop = that.scrolledEl.offset().top - $(window).scrollTop();
-                // }
-            });
+                var that = this;
+                $('.wiki-page').each(function (_, el) {
+                    var $win = $(window);
+                    var val = $(el).offset().top + 500;
+                    if (val > $win.scrollTop() && val < ($win.scrollTop() + $win.height())) {
+                        that.scrolledEl = $(el);
+                    }
 
-            var wiki = this.scrolledEl.data('wiki-page');
-            console.log('.nav-pane span[data-wiki="' + wiki + '"]');
+                });
 
-            $('.nav-pane span').removeClass('st-active');
-            $('.nav-pane span[data-wiki="' + wiki + '"]').addClass('st-active');
+                var wiki = this.scrolledEl.data('wiki-page');
+
+                $('.nav-pane span').removeClass('st-active');
+                $('.nav-pane span[data-wiki="' + wiki + '"]').addClass('st-active');
+            }
         },
         init: function () {
            $('body').on('click', 'div.nav-pane span', $.proxy(this.onClickItem, this));
