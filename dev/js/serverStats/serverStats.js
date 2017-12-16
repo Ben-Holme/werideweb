@@ -90,15 +90,20 @@ define([
 				serverLongSession = true;
 				firstServerSess = (now - days);
 			}
-			var lastServerSessEnd = 0;
+            var lastServerSessEnd = 0;
+            var currentStart = 0;
 			weride.chars[-1].sessions.forEach(function(sess) {
-				lastServerSessEnd = sess.end > lastServerSessEnd ? sess.end : lastServerSessEnd;
+				if (sess.end > lastServerSessEnd) {
+					lastServerSessEnd = sess.end;
+					currentStart = sess.start;
+				}
 			});
 			var isOnline = (lastServerSessEnd + (5 * 60000)) > now;
 
 			weride.server = {
 				start: firstServerSess,
 				end: lastServerSessEnd,
+				currentStart: currentStart,
 				online: isOnline,
 				longSession: serverLongSession
 			};
@@ -184,18 +189,67 @@ define([
 		Object.keys(chars).forEach(function(key) {
 			var sessionsMarkup = "";
 			chars[key].sessions.forEach(function(session) {
-				var isActiveServerSession = key === '-1' && session.end === weride.server.end && weride.server.online;
-				var active = session.end === '0' || isActiveServerSession;
+				var active;
+				var left;
+				var right;
+				if (key === '-1') {
+                    var isActiveServerSession = session.end === weride.server.end && weride.server.online;
+                    active = session.end === '0' || isActiveServerSession;
+                    left = (isActiveServerSession && weride.server.longSession) ? '0' : (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
+                    right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
+
+
+                    sessionsMarkup +=
+                        '<div class="session' +
+                        (active ? ' active' : '') +
+                        '" style="right:' + (active ? '0' : right) + ';left:' + left + '"><span class="color"></span>' +
+                        '<span class="start">' + timeFormat(session.start) + '</span>' +
+                        (!active ? ('<span class="end">' + timeFormat(session.end) + '</span>') : '') +
+                        '</div>';
+				} else {
+					var crashed = session.end === '0' && session.start < weride.server.currentStart;
+					if (crashed) {
+						if (chars[key].char === 'K') {
+							console.log('yes', new Date(session.start));
+						}
+                        chars['-1'].sessions.forEach(function(sess) {
+                            var afterStart = session.start > sess.start;
+                            var beforeEnd = session.start < (sess.end + 600000);
+                            if (chars[key].char === 'K') {
+                                console.log(new Date(sess.start), new Date(sess.end), beforeEnd, afterStart);
+                            }
+							if (beforeEnd && afterStart) {
+                        		session.end = (sess.end + 600000);
+                        		if (chars[key].char === 'K') {
+									console.log(new Date(session.start), new Date(sess.end));
+								}
+							}
+                        });
+					}
+
+                    active = session.end === '0' && !crashed;
+                    left = (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
+                    right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
+                    sessionsMarkup +=
+                        '<div class="session' +
+                        (active ? ' active' : '') +
+                        '" style="right:' + (active ? '0' : right) + ';left:' + left + '"><span class="color"></span>' +
+                        '<span class="start">' + timeFormat(session.start) + '</span>' +
+                        (!active ? ('<span class="end">' + timeFormat(session.end) + '</span>') : '') +
+                        '</div>';
+				}
+				//var isActiveServerSession = key === '-1' && session.end === weride.server.end && weride.server.online;
+				//var active = session.end === '0' || isActiveServerSession;
 				// console.log(isActiveServerSession, weride.server);
-				var left = (isActiveServerSession && weride.server.longSession) ? '0' : (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
-				var right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
-				sessionsMarkup +=
-					'<div class="session' +
-					(active ? ' active' : '') + ((isActiveServerSession && weride.server.longSession) ? ' long' : '') +
-					'" style="right:' + (active ? '0' : right) + ';left:' + left + '"><span class="color"></span>' +
-					'<span class="start">' + timeFormat(session.start) + '</span>' +
-					(!active ? ('<span class="end">' + timeFormat(session.end) + '</span>') : '') +
-					'</div>';
+				//var left = (isActiveServerSession && weride.server.longSession) ? '0' : (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
+				//var right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
+				// sessionsMarkup +=
+				// 	'<div class="session' +
+				// 	(active ? ' active' : '') + ((isActiveServerSession && weride.server.longSession) ? ' long' : '') +
+				// 	'" style="right:' + (active ? '0' : right) + ';left:' + left + '"><span class="color"></span>' +
+				// 	'<span class="start">' + timeFormat(session.start) + '</span>' +
+				// 	(!active ? ('<span class="end">' + timeFormat(session.end) + '</span>') : '') +
+				// 	'</div>';
 			});
 			charMarkup = '<div class="char' + (key === '-1' ? ' server' : '') + '"><span class="name">' + chars[key].char + '</span>' + sessionsMarkup + '</div>' + charMarkup;
 		});
