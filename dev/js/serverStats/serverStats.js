@@ -207,8 +207,15 @@ define([
                         (!active ? ('<span class="end">' + timeFormat(session.end) + '</span>') : '') +
                         '</div>';
 				} else {
+                    if (chars[key].char === 'Bennyz') {
+						console.log('yes', session.end);
+					}
+
 					var crashed = session.end === '0' && session.start < weride.server.currentStart;
 					if (crashed) {
+                        if (chars[key].char === 'Bennyz') {
+                            console.log('c');
+                        }
                         chars['-1'].sessions.forEach(function(sess) {
                             var afterStart = new Date(session.start) >= new Date(sess.start);
                             var beforeEnd = new Date(session.start) <= new Date(sess.end);
@@ -218,7 +225,7 @@ define([
                         });
 					}
 
-                    active = session.end === '0' && !crashed;
+                    active = session.end === '0';
                     left = (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
                     right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
                     sessionsMarkup +=
