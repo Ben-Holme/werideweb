@@ -195,7 +195,7 @@ define([
 				if (key === '-1') {
                     var isActiveServerSession = session.end === weride.server.end && weride.server.online;
                     active = session.end === '0' || isActiveServerSession;
-                    left = (isActiveServerSession && weride.server.longSession) ? '0' : (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
+                    left = (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
                     right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
 
 
@@ -209,20 +209,11 @@ define([
 				} else {
 					var crashed = session.end === '0' && session.start < weride.server.currentStart;
 					if (crashed) {
-						if (chars[key].char === 'K') {
-							console.log('yes', new Date(session.start));
-						}
                         chars['-1'].sessions.forEach(function(sess) {
-                            var afterStart = session.start > sess.start;
-                            var beforeEnd = session.start < (sess.end + 600000);
-                            if (chars[key].char === 'K') {
-                                console.log(new Date(sess.start), new Date(sess.end), beforeEnd, afterStart);
-                            }
+                            var afterStart = new Date(session.start) >= new Date(sess.start);
+                            var beforeEnd = new Date(session.start) <= new Date(sess.end);
 							if (beforeEnd && afterStart) {
                         		session.end = (sess.end + 600000);
-                        		if (chars[key].char === 'K') {
-									console.log(new Date(session.start), new Date(sess.end));
-								}
 							}
                         });
 					}
