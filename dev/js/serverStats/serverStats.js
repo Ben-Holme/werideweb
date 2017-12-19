@@ -198,7 +198,6 @@ define([
                     left = (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
                     right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
 
-
                     sessionsMarkup +=
                         '<div class="session' +
                         (active ? ' active' : '') +
@@ -207,31 +206,44 @@ define([
                         (!active ? ('<span class="end">' + timeFormat(session.end) + '</span>') : '') +
                         '</div>';
 				} else {
-                    if (chars[key].char === 'Bennyz') {
-						console.log('yes', session.end);
+                    if (chars[key].char === 'Mecca') {
+						console.log(new Date(session.start), new Date(weride.server.end));
 					}
 
 					var crashed = session.end === '0' && session.start < weride.server.currentStart;
 					if (crashed) {
-                        if (chars[key].char === 'Bennyz') {
-                            console.log('c');
-                        }
+
                         chars['-1'].sessions.forEach(function(sess) {
-                            var afterStart = new Date(session.start) >= new Date(sess.start);
-                            var beforeEnd = new Date(session.start) <= new Date(sess.end);
-							if (beforeEnd && afterStart) {
-                        		session.end = (sess.end + 600000);
+                        	if(session.end === '0') {
+								var afterStart = new Date(session.start) >= new Date(sess.start);
+								var beforeEnd = new Date(session.start) <= new Date(sess.end);
+
+
+
+                                if (chars[key].char === 'Mecca') {
+									console.log(afterStart, beforeEnd, new Date(sess.start), new Date(sess.end));
+                                }
+								if (beforeEnd && afterStart || !afterStart && beforeEnd) {
+									session.end = sess.end;
+                                    if (chars[key].char === 'Mecca') {
+										console.log(new Date(session.end));
+                                    }
+								}
 							}
                         });
 					}
 
+
                     active = session.end === '0';
                     left = (((serverStart - getMinAgo(session.start)) / serverStart) * 100) + '%';
-                    right = session.end ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
+                    right = !active ? ((getMinAgo(session.end) / serverStart) * 100) + '%' : '0' + '%';
+                    if (chars[key].char === 'Mecca') {
+                        console.log(right, active);
+                    }
                     sessionsMarkup +=
                         '<div class="session' +
                         (active ? ' active' : '') +
-                        '" style="right:' + (active ? '0' : right) + ';left:' + left + '"><span class="color"></span>' +
+                        '" style="right:' + right + ';left:' + left + '"><span class="color"></span>' +
                         '<span class="start">' + timeFormat(session.start) + '</span>' +
                         (!active ? ('<span class="end">' + timeFormat(session.end) + '</span>') : '') +
                         '</div>';
