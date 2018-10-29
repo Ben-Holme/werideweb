@@ -159,8 +159,9 @@ define([
 			'T' +
 			fixZero(dateArray[3]) +
 			':' +
-			fixZero(dateArray[4]) +
-			'+01:00'; // vinter/sommartid?
+			fixZero(dateArray[4])
+			//'+10:00' // sommartid
+	  		;
 		return new Date(s).getTime();
 	};
   GetServerStats.prototype.renderServerStats = function (d) {
