@@ -160,7 +160,7 @@ define([
 			fixZero(dateArray[3]) +
 			':' +
 			fixZero(dateArray[4])
-			//'+10:00' // sommartid
+			//'+01:00' // sommartid
 	  		;
 		return new Date(s).getTime();
 	};
