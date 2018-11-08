@@ -70,7 +70,7 @@ var SampleApp = function() {
 
 
     // API FUNCTIONS
-    var ip = '3.121.117.148';
+    var ip = '83.254.66.159';
 
     self.getServerStats = function (callback) {
       var request = require('request');
