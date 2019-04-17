@@ -26,14 +26,10 @@ define([
 
       for (var key in body) {
         var jsDate = new Date(body[key].date);
-
-
         var day = jsDate.getDate();
         var monthIndex = jsDate.getMonth();
         var year = jsDate.getFullYear();
-
-          var niceDate = day + ' ' + monthNames[monthIndex] + ' ' + year;
-        console.log(niceDate);
+        var niceDate = day + ' ' + monthNames[monthIndex] + ' ' + year;
         body[key].date = niceDate;
       }
 
