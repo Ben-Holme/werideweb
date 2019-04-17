@@ -39,6 +39,7 @@
     "grunt-express-server": "^0.5.1",
     "grunt-postcss": "^0.6.0",
     "handlebars": "^4.0.3",
+    "heroku-cli": "^7.0.9",
     "jquery": "^2.1.4",
     "jquery-easing": "0.0.1",
     "matchdep": "^0.3.0",

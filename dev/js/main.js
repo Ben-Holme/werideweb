@@ -12,12 +12,18 @@ require.config({
 
 require(['jquery', 'modernizr'], function ($) {
 	$(document).ready(function () {
-		var $jsGetChars = $(".js-get-chars");
-		if($jsGetChars.length) {
-			require(['getChars/getChars'], function (Constructor) {
-				new Constructor($jsGetChars);
-			});
-		}
+        var $jsGetChars = $(".js-get-chars");
+        if($jsGetChars.length) {
+          require(['getChars/getChars'], function (Constructor) {
+            new Constructor($jsGetChars);
+          });
+        }
+       var $jsGetChars = $(".js-get-blog");
+        if($jsGetChars.length) {
+          require(['getBlog/getBlog'], function (Constructor) {
+            new Constructor($jsGetChars);
+          });
+        }
 		var $jsHeader = $('.js-header');
 		if($jsHeader.length) {
 			require(['header'], function (Constructor) {

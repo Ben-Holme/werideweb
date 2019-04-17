@@ -97,33 +97,42 @@ var SampleApp = function() {
         // fs.appendFile(__dirname + '/static/js/test.js', body);
     };
     self.getChars = function (callback) {
-		var request = require('request');
-        request
-			.get('http://' + ip + '/ueserv/getCharStats.php', function (err, res, body) {
-                if (!err && res.statusCode == 200) {
-                    callback(body);
-                } else {
-                    //callback({error: {name:§ 'No internet Connection'}});
-                    callback({
-                        0: {
-                            name: 'fake char 1', kills: 45, death: 32, bounty: 55
-                        },
-                        1: {
-                            name: 'fake char 2', kills: 55, death: 32, bounty: 522
-                        },
-                        2: {
-                            name: 'fake char 3', kills: 52, death: 32, bounty: 523
-                        },
-                        3: {
-                            name: 'fake char 4', kills: 232, death: 32, bounty: 442
-                        },
-                        4: {
-                            name: 'fake char 5', kills: 11, death: 32, bounty: 332
-                        }
-                    });
-                }
-			});
-    };
+    var request = require('request');
+    request
+      .get('http://' + ip + '/ueserv/getCharStats.php', function (err, res, body) {
+        if (!err && res.statusCode == 200) {
+          callback(body);
+        } else {
+          //callback({error: {name:§ 'No internet Connection'}});
+          callback({
+            0: {
+              name: 'fake char 1', kills: 45, death: 32, bounty: 55
+            },
+            1: {
+              name: 'fake char 2', kills: 55, death: 32, bounty: 522
+            },
+            2: {
+              name: 'fake char 3', kills: 52, death: 32, bounty: 523
+            },
+            3: {
+              name: 'fake char 4', kills: 232, death: 32, bounty: 442
+            },
+            4: {
+              name: 'fake char 5', kills: 11, death: 32, bounty: 332
+            }
+          });
+        }
+      });
+  };
+    self.getBlog = function (callback) {
+    var request = require('request');
+    request
+      .get('http://blog.weridegame.com/wp-json/wp/v2/posts', function (err, res, body) {
+        if (!err && res.statusCode == 200) {
+          callback(body);
+        }
+      });
+  };
 
     self.getCharsFake = function () {
         return [{name: 'namn1', kills: 4}, {name: 'name2', kills: 5}];
@@ -150,12 +159,25 @@ var SampleApp = function() {
             );
         };
         self.routes['/death-clock'] = function(req, res) {
-            res.render('death-clock.ejs', {
-                    isLocal: self.port === 3000,
-                    //chars: self.getChars()
-                    chars: [{name: 'namn1', kills: 4}, {name: 'name2', kills: 5}]
-                }
-            );
+          res.render('death-clock.ejs', {
+              isLocal: self.port === 3000,
+              //chars: self.getChars()
+              chars: [{name: 'namn1', kills: 4}, {name: 'name2', kills: 5}]
+            }
+          );
+        };
+        self.routes['/blog'] = function(req, res) {
+          res.render('blog.ejs', {
+              isLocal: self.port === 3000,
+              //chars: self.getChars()
+              chars: [{name: 'namn1', kills: 4}, {name: 'name2', kills: 5}]
+            }
+          );
+        };
+        self.routes['/getBlog'] = function(req, res) {
+          self.getBlog(function (body) {
+            res.send(body);
+          });
         };
         self.routes['/getChars'] = function(req, res) {
             self.getChars(function (body) {
@@ -200,7 +222,7 @@ var SampleApp = function() {
         self.app.post('/charLoggedIn', function(req, res) {
             res.send('OK!');
             fs.appendFile(__dirname + '/static/js/log.js',
-              'in=' + req.body.date + '&char=' + req.body.char 
+              'in=' + req.body.date + '&char=' + req.body.char
             );
         });
 
