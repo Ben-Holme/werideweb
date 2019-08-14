@@ -40,44 +40,29 @@ header {
 			transform: scale(0.6);
 		}
 	}
+	@keyframes newintro {
+		from {
+			transform: scale(.5);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
 	.title {
 		position: absolute;
-		top: 0;
+		top: 10px;
 		right: 0;
 		bottom: 0;
 		left: 0;
-		animation: 4s logo-intro ease forwards;
 		//animation: 4s steps steps(3, end);
 		background-image: url('/static/img/we-ride-logo.png');
 		background-size: 100% auto;
 		color: transparent;
 		text-shadow: none;
-		background-position: 0 100%;
-		&:before {
-			content: '';
-			width: 3px;
-			height: 3px;
-			position: absolute;
-			border-radius: 50%;
-			background-color: #833;
-			top: 50px;
-			left: 88px;
-			animation: 2s dripp 1s both;
-			transform-origin: 0 0;
-		}
-		&:after {
-			content: '';
-			width: 2px;
-			height: 5px;
-			position: absolute;
-			border-radius: 50%;
-			background-color: #833;
-			top: 50px;
-			left: 88px;
-			transform: rotate(-5deg);
+		animation: .5s newintro;
 
-			animation: 4s dripp2 1s both;
-		}
 		span {
 			right: 6px;
 			top: -11px;
@@ -90,7 +75,7 @@ header {
 			font-size: 10px;
 			animation: 1s fade-in;
 			animation-fill-mode: forwards;
-			animation-delay: 4s;
+			animation-delay: 1s;
 			text-shadow: @key2 0 0 10px, @key2 0 0 10px, @key2 0 0 9px, @key2 0 0 10px;
 		}
 		@keyframes fade-in {
